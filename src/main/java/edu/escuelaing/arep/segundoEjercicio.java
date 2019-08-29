@@ -5,6 +5,7 @@ import java.net.URL;
 
 public class segundoEjercicio {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws Exception{
 		
 		PrintWriter p = new PrintWriter(new FileWriter("resultado.html"));

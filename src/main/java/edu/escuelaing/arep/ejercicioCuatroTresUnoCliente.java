@@ -3,14 +3,14 @@ package edu.escuelaing.arep;
 import java.io.*;
 import java.net.*;
 
-public class tercerEjercicioCliente {
+public class ejercicioCuatroTresUnoCliente {
 	
 	public static void main(String[] args) throws IOException {
 		Socket echoSocket = null;
 		PrintWriter out = null;
 		BufferedReader in = null;
 		try {
-			echoSocket = new Socket("127.0.0.1", 35000);
+			echoSocket = new Socket("127.0.0.1", 35002);
 			out = new PrintWriter(echoSocket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
 		} catch (UnknownHostException e) {
@@ -20,11 +20,13 @@ public class tercerEjercicioCliente {
 			System.err.println("Couldn’t get I/O for " + "the connection to: localhost.");
 			System.exit(1);
 		}
+		double num;
 		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		String userInput;
 		while ((userInput = stdIn.readLine()) != null) {
-			out.println(userInput);
-			System.out.println("echo: " + in.readLine());
+			num = Double.parseDouble(userInput);
+			out.println(num);
+			System.out.println(in.readLine());
 		}
 		out.close();
 		in.close();
